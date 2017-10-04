@@ -28,12 +28,12 @@ public static function main()
 
 }
 
+// Final code below
 <?php
-$s = "{{content}}";
-$matches = array();
-$result = preg_match('/i=(?P<iVal>[0-9]+)&l=(?P<lVal>[a-z0-9]+)$/siU', $s, $matches);
-$matches = array();
-$result = preg_match('/i=(?P<iVal>[0-9]+)&l=(?P<lVal>[a-z0-9]+)$/siU', $s, $matches);
-$url_string = "http://mwo.smurfy-net.de/tools/mechtooltip?i=".$matches['iVal']."&l=".$matches['lVal'];
-$embed_html = '<iframe src="'.$url_string.'" width="750" height="300" border="0"></iframe>';
-echo $embed_html;
+	$s = "{{content}}";
+	$matches = array();
+	$result = preg_match('/i=(?P<iVal>[0-9]+)&l=(?P<lVal>[a-z0-9]+)$/siU', $s, $matches);
+	$url_string = "http://mwo.smurfy-net.de/tools/mechtooltip?i=".$matches['iVal']."&l=".$matches['lVal'];
+	$embed_html = '<iframe src="'.$url_string.'" width="750" height="300" border="0"></iframe>';
+	echo $embed_html;
+?>
