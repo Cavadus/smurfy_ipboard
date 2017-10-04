@@ -1,18 +1,11 @@
 <?php
+$s = "{{content}}";
+$matches = array();
+$result = preg_match('/i=(?P<iVal>[0-9]+)&l=(?P<lVal>[a-z0-9]+)$/siU', $s, $matches);
+$embed_html = '<iframe src="http://mwo.smurfy-net.de/tools/mechtooltip?i=' + $matches['iVal'] + ' &l=' + $matches['lVal'] + '" width="750" height="300" border="0"></iframe>';
+echo $matches['iVal'];
+echo $matches['lVal'];
 
-public static function extractParams()
-{
-	$match = {{content}}
-	// ISOLATE THE TWO VALUES FROM THE QUERY STRING
-	if(preg_match('/^i=(?P<iVal>[0-9]+)&l=(?P<lVal>[a-z0-9]+)$/siU', $match))
-	{
-		// RETURN DELIMITED VALUES
-		// THESE TWO VALUES ARE INSERTED INTO THE HTML IN THE HTML CALLBACK
-		return $match['iVal'] . '|' . $match['lVal'];
-	}
-	// RETURN NOTHING IF NO MATCH
-	return '';
-}
 
 public static function buildEmbed($mediaKey, array $site)
 {
@@ -26,7 +19,7 @@ public static function buildEmbed($mediaKey, array $site)
 	$finalHtml = str_replace(array('__IVAL__', '__LVAL__'), array($components['iVal'], $components['lVal']), $embedHtml);
 	// RETURN THE FINISHED HTML
 	return $finalHtml;
-}
+
 
 public static function main()
 {
@@ -35,4 +28,12 @@ public static function main()
 
 }
 
-?>
+<?php
+$s = "{{content}}";
+$matches = array();
+$result = preg_match('/i=(?P<iVal>[0-9]+)&l=(?P<lVal>[a-z0-9]+)$/siU', $s, $matches);
+$matches = array();
+$result = preg_match('/i=(?P<iVal>[0-9]+)&l=(?P<lVal>[a-z0-9]+)$/siU', $s, $matches);
+$url_string = "http://mwo.smurfy-net.de/tools/mechtooltip?i=".$matches['iVal']."&l=".$matches['lVal'];
+$embed_html = '<iframe src="'.$url_string.'" width="750" height="300" border="0"></iframe>';
+echo $embed_html;
